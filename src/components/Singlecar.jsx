@@ -4,20 +4,28 @@ import { FiCrosshair, FiUsers } from "react-icons/fi";
 import { FaCog, FaGasPump } from 'react-icons/fa';
 
 const Singlecar = ({car}) => {
-    const {id,name,model,seats,fuelType,monthlyRentPrice,fuelEfficiencyMetric,transmission,year} = car
+    const {id,name,image,model,seats,fuelType,monthlyRentPrice,fuelEfficiencyMetric,transmission,year} = car
   return (
     <div>
       <div className="card min-h-full w-full bg-base-100 shadow-xl">
         <figure className="px-8 pt-8">
           <img
-            src="https://i.ibb.co/wMb31LQ/pexels-s-von-hoerst-2676096.jpg"
+            src={image}
             alt="Shoes"
             className="rounded-md "
           />
         </figure>
         <div className="card-body">
             {/* https://i.ibb.co/wMb31LQ/pexels-s-von-hoerst-2676096.jpg
-https://i.ibb.co/YRj5hpn/pexels-s-von-hoerst-2920064.jpg */}
+
+
+
+https://i.ibb.co/0Fn5TCm/pexels-s-von-hoerst-2676096-1.jpg
+https://i.ibb.co/fXvVgTt/pexels-oleksandr-p-376361.jpg
+https://i.ibb.co/9hz5Tq8/pexels-julio-nery-1687147.jpg
+https://i.ibb.co/XL336HR/pexels-ryan-west-1719648.jpg
+
+*/}
          <div className="flex gap-2 items-center justify-between">
          <h2 className="grow card-title text-3xl font-semibold w-full">
            {name}

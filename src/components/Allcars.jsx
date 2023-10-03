@@ -125,8 +125,8 @@ const handlePageClick = ({ selected }) => {
 
          
           <ReactPaginate
-            previousLabel={<FiChevronLeft />} // Use React Icons for "Previous"
-            nextLabel={<FiChevronRight />} // Use React Icons for "Next"
+            previousLabel={<FiChevronLeft />}
+            nextLabel={<FiChevronRight />} 
             breakLabel={"..."}
             pageCount={pageCount}
             marginPagesDisplayed={2}
