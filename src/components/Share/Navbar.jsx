@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { CiHeart } from "react-icons/ci";
 const Navbar = () => {
     return (
         <div className=''>
         
-        <div className="navbar bg-emerald-200 mt-10">
+        <div className="navbar bg-[#f5f8fa] mt-10">
   <div className="flex-1">
     <Link to='/' className="btn btn-ghost normal-case text-xl">CarRent</Link>
   </div>
@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle">
         <div className="indicator">
-          [icon]
+          <CiHeart className='text-cyan-500 text-4xl'></CiHeart>
           <span className="badge badge-sm indicator-item">8</span>
         </div>
       </label>
@@ -30,7 +30,7 @@ const Navbar = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img src="https://i.ibb.co/LknGrLR/author2.jpg" />
         </div>
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">

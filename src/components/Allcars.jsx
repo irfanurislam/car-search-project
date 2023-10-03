@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Singlecar from "./Singlecar";
-import { Link, useParams } from "react-router-dom";
+import ReactPaginate from "react-paginate";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Allcars = () => {
   const [cars, setAllCars] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("All");
+  const [pageNumber, setPageNumber] = useState(0);
+  const carsPerPage = 6; // Number of cars per page
+
+
+
   useEffect(() => {
     fetch("cars.json")
       .then((res) => res.json())
@@ -30,7 +36,14 @@ const uniqueBrands = [...new Set(cars.map((car) => car.make))];
       
   );
   
+// Paginate cars
+const pageCount = Math.ceil(filteredCars.length / carsPerPage);
+const offset = pageNumber * carsPerPage;
+const paginatedCars = filteredCars.slice(offset, offset + carsPerPage);
 
+const handlePageClick = ({ selected }) => {
+  setPageNumber(selected);
+};
  
 
 
@@ -48,23 +61,24 @@ const uniqueBrands = [...new Set(cars.map((car) => car.make))];
             placeholder="Search for cars name..."
             value={searchQuery} // Step 1: Bind input value to searchQuery
             onChange={(e) => setSearchQuery(e.target.value)} // Step 1: Handle input change
-            className="input input-xl max-w-xl w-full"
+            className="input input-xl max-w-xl w-full focus:border-rose-800"
           />
-          <select className="select select-bordered max-w-xs"
+          <select className="select select-bordered max-w-xs text-xl"
           
           >
             <option disabled selected>
-              Who shot first?
+             revoulation
             </option>
             <option>Han Solo</option>
             <option>Greedo</option>
           </select>
           <select
-            className="select select-bordered max-w-xs"
+            className="select select-bordered max-w-xs text-xl"
             onChange={(e) => setSelectedBrand(e.target.value)}
             value={selectedBrand}
+           
           >
-            <option value="All">All Brands</option>
+            <option  value="All">All Brands</option>
             {uniqueBrands.map((brand, index) => (
               <option key={index} value={brand}>
                 {brand}
@@ -82,7 +96,7 @@ const uniqueBrands = [...new Set(cars.map((car) => car.make))];
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {
-            filteredCars.map(car => <Singlecar key={car.id} car = {car}></Singlecar>)
+            paginatedCars.map(car => <Singlecar key={car.id} car = {car}></Singlecar>)
         }
       </div>
       
@@ -94,11 +108,36 @@ const uniqueBrands = [...new Set(cars.map((car) => car.make))];
 
 
 
-
+{/* pagination flex items-center gap-5 justify-end */}
 
 
 
       {/* Pagination */}
+      <div className="mt-10 text-xl pb-20">
+        <div className="flex justify-between items-center">
+          <p>
+            {pageNumber * carsPerPage + 1}-{Math.min(
+              (pageNumber + 1) * carsPerPage,
+              filteredCars.length
+            )}{" "}
+            out of {filteredCars.length} pages
+          </p>
+
+         
+          <ReactPaginate
+            previousLabel={<FiChevronLeft />} // Use React Icons for "Previous"
+            nextLabel={<FiChevronRight />} // Use React Icons for "Next"
+            breakLabel={"..."}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination flex items-center gap-5 justify-end"}
+            activeClassName={"active hover:bg- bg-white w-full border-2 border-black px-3 py-2 rounded-full"}
+           
+          />
+        </div>
+      </div>
     
     </div>
   );
