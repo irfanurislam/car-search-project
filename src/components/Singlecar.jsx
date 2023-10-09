@@ -7,7 +7,7 @@ const Singlecar = ({car}) => {
     const {id,name,image,model,seats,fuelType,monthlyRentPrice,fuelEfficiencyMetric,transmission,year} = car
   return (
     <div>
-      <div className="card min-h-full w-full bg-base-100 shadow-xl">
+      <div className="card dark:border dark:border-white min-h-full w-full dark:bg-black  dark:text-white bg-base-100 shadow-xl">
         <figure className="px-8 pt-8">
           <img
             src={image}

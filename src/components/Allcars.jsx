@@ -54,7 +54,7 @@ const handlePageClick = ({ selected }) => {
 
   return (
     <div className="mb-28">
-      <div className="mt-10 h-20 bg-slate-500 rounded-xl">
+      <div className="mt-10 h-20  bg-slate-500  rounded-xl">
         <div className="flex h-full p-5 gap-5 justify-between items-center">
         <input
             type="text"
@@ -63,7 +63,7 @@ const handlePageClick = ({ selected }) => {
             onChange={(e) => setSearchQuery(e.target.value)} // Step 1: Handle input change
             className="input input-xl max-w-xl w-full focus:border-rose-800"
           />
-          <select className="select select-bordered max-w-xs text-xl"
+          <select className="select select-bordered max-w-xs text-xl dark:text-black"
           
           >
             <option disabled selected>
@@ -73,7 +73,7 @@ const handlePageClick = ({ selected }) => {
             <option>Greedo</option>
           </select>
           <select
-            className="select select-bordered max-w-xs text-xl"
+            className="select select-bordered max-w-xs text-xl  dark:text-black"
             onChange={(e) => setSelectedBrand(e.target.value)}
             value={selectedBrand}
            
@@ -133,7 +133,7 @@ const handlePageClick = ({ selected }) => {
             pageRangeDisplayed={5}
             onPageChange={handlePageClick}
             containerClassName={"pagination flex items-center gap-5 justify-end"}
-            activeClassName={"active hover:bg- bg-white w-full border-2 border-black px-3 py-2 rounded-full"}
+            activeClassName={"active dark:text-black hover:bg- bg-white w-full border-2 border-black px-3 py-2 rounded-full"}
            
           />
         </div>

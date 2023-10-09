@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CiHeart } from "react-icons/ci";
-const Navbar = () => {
+const Navbar = ({darkMode,setDarkmode}) => {
+ 
+
     return (
-        <div className=''>
+        <div className='dark: bg-black'>
         
-        <div className="navbar bg-[#f5f8fa] mt-10">
+        <div className="dark:text-white navbar bg-[#f5f8fa] dark:bg-black mt-10">
   <div className="flex-1">
     <Link to='/' className="btn btn-ghost normal-case text-xl">CarRent</Link>
   </div>
@@ -17,6 +19,7 @@ const Navbar = () => {
           <span className="badge badge-sm indicator-item">8</span>
         </div>
       </label>
+     
       <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
         <div className="card-body">
           <span className="font-bold text-lg">8 Items</span>
@@ -27,6 +30,13 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    
+   
+
+<button onClick={() => setDarkmode(!darkMode)} className='btn btn-primary'>
+ {darkMode? 'light':"dark" } mode
+</button>
+
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
