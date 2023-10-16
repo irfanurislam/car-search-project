@@ -11,7 +11,7 @@ const Navbar = ({darkMode,setDarkmode}) => {
   <div className="flex-1">
     <Link to='/' className="btn btn-ghost normal-case text-xl">CarRent</Link>
   </div>
-  <div className="flex-none">
+  <div className="flex-none gap-2">
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle">
         <div className="indicator">
@@ -32,10 +32,14 @@ const Navbar = ({darkMode,setDarkmode}) => {
     </div>
     
    
-
+{/* 
 <button onClick={() => setDarkmode(!darkMode)} className='btn btn-primary'>
  {darkMode? 'light':"dark" } mode
-</button>
+</button> */}
+
+<div className=''>
+<input onClick={() => setDarkmode(!darkMode)} type="checkbox" className="toggle" checked={darkMode}  />
+</div>
 
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
